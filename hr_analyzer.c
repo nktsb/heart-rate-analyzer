@@ -6,14 +6,12 @@
 
 #include "hr_analyzer.h"
 
-#define MS_PER_MINUTE				(1000 * 60)
-
-#define HR_MAX_RES_VAL				240.0f
-#define HR_MIN_RES_VAL				40.0f
-
+#define MS_PER_MINUTE			(1000 * 60)
+#define HR_MAX_RES_VAL			240.0f
+#define HR_MIN_RES_VAL			40.0f
 #define HR_ANALYZER_DEF_HYST_DIV	5
-
 #define RESET_ANALYZER_TMO_MS		2000
+
 
 static void hr_analyzer_reset_local_max_min(hr_analyzer_st *hr_analyzer)
 {
@@ -28,8 +26,8 @@ static void hr_analyzer_reset_local_max_min(hr_analyzer_st *hr_analyzer)
 
 static void hr_analyzer_set_new_hysteresis(hr_analyzer_st *hr_analyzer)
 {
-    hr_analyzer->hysteresis = (hr_analyzer->local_max_val - 
-            hr_analyzer->local_min_val) / hr_analyzer->hysteresis_div;
+	hr_analyzer->hysteresis = (hr_analyzer->local_max_val - 
+		hr_analyzer->local_min_val) / hr_analyzer->hysteresis_div;
 }
 
 void hr_analyzer_reset(hr_analyzer_st *hr_analyzer)
